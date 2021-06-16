@@ -2,6 +2,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var morgan = require('morgan');
 
 var cors = require('cors');
 
@@ -17,6 +18,8 @@ var trackto_routes = require('./routes/trackto')
 //Cargar middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(morgan('dev'));
 
 //Cors
 app.use(cors()); // los cors son para poder hacer peticiones externas 
